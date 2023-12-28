@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('https://localhost:10000/signin', {
+            const response = await fetch('https://shoppers-paradise.onrender.com/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
