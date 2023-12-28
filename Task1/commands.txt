@@ -91,3 +91,32 @@ if [ "$1" == "memory" ] && [ "$2" == "getinfo" ]; then
 fi
 
 
+task2 intermediate 
+# creating a new user
+
+sudo nano /usr/local/bin/internsctl
+
+user_create() {
+    username=$1
+    sudo adduser --disabled-password --gecos "" $username
+}
+
+if [ "$1" == "user" ] && [ "$2" == "create" ]; then
+    user_create "$3"
+    exit 0
+fi
+
+#listing the users
+
+echo "Usage: internsctl user create <username>"
+echo "Create a new user with access to the system and home directory"
+
+user_list() {
+    getent passwd | grep -vE 'nologin|false' | cut -d: -f1
+}
+
+if [ "$1" == "user" ] && [ "$2" == "list" ]; then
+    user_list
+    exit 0
+fi
+
