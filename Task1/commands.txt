@@ -1,0 +1,67 @@
+nano internsctl.sh
+ chmod +x internsctl.sh
+
+ rint_version() {
+    echo "Internsctl v0.1.0"
+}
+
+print_help() {
+    echo "Usage: internsctl [OPTION]"
+    echo "Custom Linux command for interns"
+    echo
+    echo "Options:"
+    echo "  -v, --version     Display version information"
+    echo "  -h, --help        Display this help message"
+    echo
+    echo "Examples:"
+    echo "  internsctl -v       Display version information"
+    echo "  internsctl --help   Display this help message"
+    echo "  More usage examples..."
+}
+
+
+if [ "$1" == "--version" ]; then
+    print_version
+    exit 0
+fi
+
+
+if [ "$1" == "--help" ]; then
+    print_help
+    exit 0
+fi
+
+
+ sudo gzip /usr/share/man/man1/internsctl.1
+sudo mandb
+
+
+.TH internsctl 1 "December 2023" "v0.1.0" "Internsctl Manual"
+.SH NAME
+internsctl \- Custom Linux command for interns
+
+.SH SYNOPSIS
+.B internsctl
+
+.SH DESCRIPTION
+This command prints the version of internsctl.
+
+.SH OPTIONS
+None.
+
+.SH SEE ALSO
+More detailed documentation can be found online.
+
+.SH AUTHOR
+Your Name <your@email.com>
+
+.SH BUGS
+No known bugs.
+
+.SH COPYRIGHT
+This is free software; see the source for copying conditions.  There is NO warranty.
+
+
+
+sudo gzip /usr/share/man/man1/internsctl.1
+sudo mandb
