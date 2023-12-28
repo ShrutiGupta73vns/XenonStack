@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('https://localhost:10000', {
+            const response = await fetch('https://localhost:3000', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
