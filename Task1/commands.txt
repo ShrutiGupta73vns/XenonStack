@@ -76,8 +76,7 @@ if [ "$1" == "cpu" ] && [ "$2" == "getinfo" ]; then
     exit 0
 fi
 
-echo "Usage: internsctl cpu getinfo"
-echo "Get CPU information similar to 'lscpu'"
+
 
 sudo nano /usr/local/bin/internsctl
 
@@ -108,8 +107,7 @@ fi
 
 #listing the users
 
-echo "Usage: internsctl user create <username>"
-echo "Create a new user with access to the system and home directory"
+
 
 user_list() {
     getent passwd | grep -vE 'nologin|false' | cut -d: -f1
@@ -119,4 +117,5 @@ if [ "$1" == "user" ] && [ "$2" == "list" ]; then
     user_list
     exit 0
 fi
+
 
