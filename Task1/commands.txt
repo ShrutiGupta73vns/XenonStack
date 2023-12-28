@@ -63,5 +63,31 @@ This is free software; see the source for copying conditions.  There is NO warra
 
 
 
-sudo gzip /usr/share/man/man1/internsctl.1
-sudo mandb
+task2 EASY
+
+
+sudo nano /usr/local/bin/internsctl
+cpu_getinfo() {
+    lscpu
+}
+
+if [ "$1" == "cpu" ] && [ "$2" == "getinfo" ]; then
+    cpu_getinfo
+    exit 0
+fi
+
+echo "Usage: internsctl cpu getinfo"
+echo "Get CPU information similar to 'lscpu'"
+
+sudo nano /usr/local/bin/internsctl
+
+memory_getinfo() {
+    free
+}
+
+if [ "$1" == "memory" ] && [ "$2" == "getinfo" ]; then
+    memory_getinfo
+    exit 0
+fi
+
+
