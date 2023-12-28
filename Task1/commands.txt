@@ -119,3 +119,96 @@ if [ "$1" == "user" ] && [ "$2" == "list" ]; then
 fi
 
 
+# task2 advanced
+
+print_file_permissions() {
+    local file="$1"
+
+    # Check if the file exists
+    if [ ! -f "$file" ]; then
+        echo "File not found: $file"
+        exit 1
+    fi
+
+    # Display the file permissions
+    stat -c%a "$file"
+}
+
+print_file_size() {
+    local file="$1"
+
+    # Check if the file exists
+    if [ ! -f "$file" ]; then
+        echo "File not found: $file"
+        exit 1
+    fi
+
+    # Display the file size
+    stat -c%s "$file"
+}
+
+print_file_owner() {
+    local file="$1"
+
+    # Check if the file exists
+    if [ ! -f "$file" ]; then
+        echo "File not found: $file"
+        exit 1
+    fi
+
+    # Display the file owner
+    stat -c%U "$file"
+}
+
+print_last_modified() {
+    local file="$1"
+
+    # Check if the file exists
+    if [ ! -f "$file" ]; then
+        echo "File not found: $file"
+        exit 1
+    fi
+
+    # Display the last modified date
+    stat -c%y "$file"
+}
+
+print_file_info() {
+    local file="$1"
+
+    # Check if the file exists
+    if [ ! -f "$file" ]; then
+        echo "File not found: $file"
+        exit 1
+    fi
+
+    # Default output
+    output="File: $file\n"
+    output+="Access: $(stat -c%a "$file")\n"
+    output+="Size(B): $(stat -c%s "$file")\n"
+    output+="Owner: $(stat -c%U "$file")\n"
+    output+="Modify: $(stat -c%y "$file")\n"
+
+    echo -e "$output"
+}
+
+if [ "$1" == "file" ] && [ "$2" == "getinfo" ]; then
+    file="$4"
+
+    if [ "$3" == "--permissions" ]; then
+        print_file_permissions "$file"
+    elif [ "$3" == "--size" ]; then
+        print_file_size "$file"
+    elif [ "$3" == "--owner" ]; then
+        print_file_owner "$file"
+    elif [ "$3" == "--last-modified" ]; then
+        print_last_modified "$file"
+    else
+        file="$3"
+        print_file_info "$file"
+    fi
+    exit 0
+fi
+
+
+
