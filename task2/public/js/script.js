@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('https://my-mobi-store.onrender.com/', {
+            const response = await fetch('https://localhost:10000', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

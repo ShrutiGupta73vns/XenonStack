@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(cors({
-    origin: 'https://shoppers-paradise.onrender.com/',
+    origin: 'https://shoppers-paradise.onrender.com',
     credentials: true,
 }));
 
